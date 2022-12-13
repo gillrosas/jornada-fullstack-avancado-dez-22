@@ -1,5 +1,5 @@
-.Footer {
-  background: #ececec;
+.rodape {
+  padding: 20px;
   color: #585858;
-  padding: 2rem;
+  background-color: #ececec; 
 }

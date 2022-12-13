@@ -1,11 +1,10 @@
-.Header {
-  align-items: center;
-  background: #0042be;
-  display: flex;
+.link,
+.link:hover {
+  color: white;
+  padding: 0 20px;
 }
 
-.Header a {
-  color: #ffffff;
-  margin: 1rem;
-  font-size: 1rem;
+.cabecalho{
+  background-color: blue;
+  padding: 10px 0;
 }
