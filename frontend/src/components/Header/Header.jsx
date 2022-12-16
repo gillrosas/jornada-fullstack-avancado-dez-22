@@ -1,5 +1,6 @@
 import MarcaOcean from "../../assets/brand.svg"
 import "./Header.css"
+import { Link } from "react-router-dom"
 
 function Header (){
   return(
@@ -11,9 +12,8 @@ function Header (){
               <img src={MarcaOcean} alt="" width={50}/>        
             </div>
             <div className='col-10'>
-              <a className="link"> Link 1</a>
-              <a className="link"> Link 2</a>
-              <a className="link"> link 3</a>
+              <Link className="link" to = "/"> Inicio</Link>
+              <Link className="link" to = "/cadastro"> Cadastro</Link>
             </div>
           </div>
          </div>   

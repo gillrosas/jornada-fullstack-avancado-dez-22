@@ -1,55 +1,56 @@
-export const Api = {
-  baseUrl: "http://localhost:3000/",
-  // baseUrl: "https://ocean-jornada-fullstack-novembro-22-cfwy.onrender.com/",
+const createRequest = function (url,body) {
+   return fetch(
+      url, 
+    {
+        method:  "POST",
+        body: JSON.stringify(body),
+        headers: new Headers({
+        "Content-type": "application/json",
+            })
+          }
+        )
+}
 
-  // Endpoints de itens
+const getRequest = function(url) {
+  return fetch(
+    url, {
+      method: "GET"
+    }
+  )
+}
+
+
+const deletetRequest = function(url) {
+  return fetch(
+    url, {
+      method: "DELETE"
+    }
+  )
+}
+
+const api = {
+  baseUrl:  function() { "http://localhost:3000"},
   item: {
-    endpoint: function () {
-      return Api.baseUrl + "item";
+
+    endpoint: function() {api.baseUrl() + "item"
+      
     },
-    readAll: function () {
-      return this.endpoint() + "/";
+
+    list: function() { getRequest(this.endpoint())
     },
-    create: function () {
-      return this.endpoint() + "/";
+    create: function () { createRequest(this.endpoint, body ())
     },
-    delete: function (id) {
-      return this.endpoint() + "/" + id;
+    delete: function (id) { deleteRequest(this.endpoint + "/" + id())
     },
   },
 
   category: {
-    endpoint: function () {
-      return Api.baseUrl + "category";
+    endpoint: function () {api.baseUrl() + "category"
     },
-    readAll: function () {
-      return this.endpoint() + "/";
-    },
-  },
 
-  // Montar as requisições
-  // GET
-  buildApiGetRequest: function (url) {
-    return fetch(url, {
-      method: "GET",
-    });
+    list: function () {getRequest(this.endpoint())
+    }, 
   },
+}
 
-  // POST
-  buildApiPostRequest: function (url, body) {
-    return fetch(url, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: new Headers({
-        "Content-type": "application/json",
-      }),
-    });
-  },
-
-  // DELETE
-  buildApiDeleteRequest: function (url) {
-    return fetch(url, {
-      method: "DELETE",
-    });
-  },
-};
+export default api
